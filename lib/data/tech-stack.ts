@@ -45,7 +45,7 @@ export const Tech_Stack: TechStack[] = [
     categories: ["Library", "UI Library"],
   },
   {
-    key: "nextjs2",
+    key: "nextjs",
     title: "Next.js",
     href: "https://nextjs.org/",
     categories: ["Framework"],

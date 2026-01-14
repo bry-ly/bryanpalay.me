@@ -8,8 +8,12 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "@/components/layout/panel";
+import {
+  Panel,
+  PanelContent,
+  PanelHeader,
+  PanelTitle,
+} from "@/components/layout/panel";
 import { Tech_Stack } from "@/lib/data/tech-stack";
 
 // Themed icons (light/dark pairs)
@@ -33,7 +37,7 @@ const localSingleIcons: Record<string, string> = {
   nodejs: "/tech-stack-icons/nodejs.svg",
   "better-auth": "/tech-stack-icons/better-auth.svg",
   postgres: "/tech-stack-icons/postgres.svg",
-  "nextjs2": "/tech-stack-icons/next-js.svg",
+  nextjs: "/tech-stack-icons/next-js.svg",
 };
 
 export function TeckStack() {
@@ -47,7 +51,7 @@ export function TeckStack() {
         className={cn(
           "[--pattern-foreground:var(--color-zinc-950)]/5 dark:[--pattern-foreground:var(--color-white)]/5",
           "bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center",
-          "bg-zinc-950/0.75 dark:bg-white/0.75"
+          "bg-zinc-950/0.75 dark:bg-white/0.75",
         )}
       >
         <TooltipProvider>
@@ -66,7 +70,10 @@ export function TeckStack() {
                         {tech.theme ? (
                           <>
                             <Image
-                              src={localThemeIcons[tech.key]?.light ?? `https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
+                              src={
+                                localThemeIcons[tech.key]?.light ??
+                                `https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`
+                              }
                               alt={`${tech.title} light icon`}
                               width={32}
                               height={32}
@@ -74,7 +81,10 @@ export function TeckStack() {
                               unoptimized
                             />
                             <Image
-                              src={localThemeIcons[tech.key]?.dark ?? `https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                              src={
+                                localThemeIcons[tech.key]?.dark ??
+                                `https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`
+                              }
                               alt={`${tech.title} dark icon`}
                               width={32}
                               height={32}
