@@ -1,9 +1,14 @@
 import { Slot } from "@radix-ui/react-slot";
+import type { ReactNode } from "react";
 import React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Panel({ className, ...props }: React.ComponentProps<"section">) {
+interface PanelProps extends React.ComponentProps<"section"> {
+  children: ReactNode;
+}
+
+function Panel({ className, children, ...props }: PanelProps): React.ReactElement {
   return (
     <section
       data-slot="panel"
@@ -12,25 +17,39 @@ function Panel({ className, ...props }: React.ComponentProps<"section">) {
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </section>
   );
 }
 
-function PanelHeader({ className, ...props }: React.ComponentProps<"header">) {
+interface PanelHeaderProps extends React.ComponentProps<"header"> {
+  children: ReactNode;
+}
+
+function PanelHeader({ className, children, ...props }: PanelHeaderProps): React.ReactElement {
   return (
     <header
       data-slot="panel-header"
       className={cn("screen-line-after px-4", className)}
       {...props}
-    />
+    >
+      {children}
+    </header>
   );
+}
+
+interface PanelTitleProps extends React.ComponentProps<"h2"> {
+  asChild?: boolean;
+  children: ReactNode;
 }
 
 function PanelTitle({
   className,
   asChild = false,
+  children,
   ...props
-}: React.ComponentProps<"h2"> & { asChild?: boolean }) {
+}: PanelTitleProps): React.ReactElement {
   const Comp = asChild ? Slot : "h2";
 
   return (
@@ -38,11 +57,17 @@ function PanelTitle({
       data-slot="panel-title"
       className={cn("text-3xl font-semibold", className)}
       {...props}
-    />
+    >
+      {children}
+    </Comp>
   );
 }
 
-function PanelTitleSup({ className, ...props }: React.ComponentProps<"sup">) {
+interface PanelTitleSupProps extends React.ComponentProps<"sup"> {
+  children: ReactNode;
+}
+
+function PanelTitleSup({ className, children, ...props }: PanelTitleSupProps): React.ReactElement {
   return (
     <sup
       className={cn(
@@ -50,14 +75,23 @@ function PanelTitleSup({ className, ...props }: React.ComponentProps<"sup">) {
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </sup>
   );
 }
 
-function PanelContent({ className, ...props }: React.ComponentProps<"div">) {
+interface PanelContentProps extends React.ComponentProps<"div"> {
+  children: ReactNode;
+}
+
+function PanelContent({ className, children, ...props }: PanelContentProps): React.ReactElement {
   return (
-    <div data-slot="panel-body" className={cn("p-4", className)} {...props} />
+    <div data-slot="panel-body" className={cn("p-4", className)} {...props}>
+      {children}
+    </div>
   );
 }
 
 export { Panel, PanelContent, PanelHeader, PanelTitle, PanelTitleSup };
+export type { PanelProps, PanelContentProps, PanelHeaderProps, PanelTitleProps, PanelTitleSupProps };

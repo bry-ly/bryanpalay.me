@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { Markdown } from "@/components/ui/markdown";
 import { ProseMono } from "@/components/ui/typography";
 import { USER } from "@/lib/data/user";
@@ -9,7 +11,7 @@ import {
   PanelTitle,
 } from "@/components/layout/panel";
 
-export function About() {
+export const About = memo(function About() {
   return (
     <Panel id="about">
       <PanelHeader>
@@ -23,4 +25,4 @@ export function About() {
       </PanelContent>
     </Panel>
   );
-}
+});
