@@ -81,7 +81,7 @@ function CollapsibleChevronsIcon() {
     }
   }, [open]);
 
-  return <ChevronsDownUpIcon ref={ref} />;
+  return <ChevronsDownUpIcon ref={ref} aria-hidden="true" />;
 }
 
 export {

@@ -39,7 +39,7 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
         )}
       </div>
 
-      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
+      <ArrowUpRightIcon className="size-4 text-muted-foreground" aria-hidden="true" />
     </a>
   );
 }

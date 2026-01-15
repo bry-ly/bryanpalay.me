@@ -77,6 +77,7 @@ const SunMediumIcon = forwardRef<SunMediumIconHandle, SunMediumIconProps>(
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          aria-hidden="true"
         >
           <circle cx="12" cy="12" r="4" />
           {[
