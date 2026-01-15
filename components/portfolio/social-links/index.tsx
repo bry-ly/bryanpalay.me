@@ -1,11 +1,10 @@
-
-import React from "react";
+import { memo } from "react";
 
 import { SOCIAL_LINKS } from "@/lib/data/social-links";
 import { Panel } from "@/components/layout/panel";
 import { SocialLinkItem } from "./social-link-items";
 
-export function SocialLinks() {
+export const SocialLinks = memo(function SocialLinks() {
   return (
     <Panel>
       <h2 className="sr-only">Social Links</h2>
@@ -24,4 +23,4 @@ export function SocialLinks() {
       </div>
     </Panel>
   );
-}
+});
