@@ -1,7 +1,6 @@
 "use client";
 
 import { TZDate, tzOffset } from "@date-fns/tz";
-import { format } from "date-fns";
 import {
   Clock1Icon,
   Clock2Icon,
@@ -57,7 +56,12 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
 
       // Get time in target timezone using TZDate
       const targetTime = TZDate.tz(timeZone);
-      const formattedTime = format(targetTime, "h:mm a");
+      const formattedTime = new Intl.DateTimeFormat(undefined, {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+        timeZone,
+      }).format(targetTime);
       setTimeString(formattedTime);
 
       // Get hour for clock icon (1-12)

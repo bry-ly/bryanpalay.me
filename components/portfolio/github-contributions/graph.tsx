@@ -1,6 +1,5 @@
 "use client";
 
-import { format } from "date-fns";
 import { LoaderIcon } from "lucide-react";
 import { use } from "react";
 
@@ -20,6 +19,12 @@ import {
   ContributionGraphTotalCount,
 } from "@/components/kibo-ui/contribution-graph";
 import { GITHUB_USERNAME } from "@/lib/config/site";
+
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
 
 export function GitHubContributionGraph({
   contributions,
@@ -56,7 +61,7 @@ export function GitHubContributionGraph({
               <TooltipContent className="font-sans">
                 <p>
                   {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
-                  on {format(new Date(activity.date), "dd.MM.yyyy")}
+                  on {dateFormatter.format(new Date(activity.date))}
                 </p>
               </TooltipContent>
             </Tooltip>
@@ -91,7 +96,7 @@ export function GitHubContributionGraph({
 export function GitHubContributionFallback() {
   return (
     <div className="flex h-40.5 w-full items-center justify-center">
-      <LoaderIcon className="animate-spin text-muted-foreground" />
+      <LoaderIcon className="animate-spin text-muted-foreground" aria-hidden="true" />
     </div>
   );
 }

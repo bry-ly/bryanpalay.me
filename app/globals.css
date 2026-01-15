@@ -109,6 +109,7 @@
 }
 
 :root {
+  color-scheme: light;
   /* white */
   --background: oklch(1 0 0);
 
@@ -199,6 +200,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   /* zinc-950 */
   --background: oklch(0.141 0.005 285.823);
 
@@ -294,6 +296,18 @@
   ::backdrop,
   ::file-selector-button {
     @apply border-border outline-ring/50;
+  }
+
+  /* Respect prefers-reduced-motion for all animations */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   ::selection {
