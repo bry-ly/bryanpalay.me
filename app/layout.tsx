@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bryan Palay",
   description: "Portfolio Website",
+  icons: {
+    icon: '/images/bryanpalay.jpg',
+  },
 };
 
 export default function RootLayout({
