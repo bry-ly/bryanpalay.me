@@ -116,4 +116,11 @@ export const Tech_Stack: TechStack[] = [
     categories: ["IDE"],
     theme: true,
   },
+  {
+    key: "vercel",
+    title: "Vercel",
+    href: "https://vercel.com/",
+    categories: ["Deployment"],
+    theme: true,
+  },
 ];
