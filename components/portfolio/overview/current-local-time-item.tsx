@@ -70,10 +70,10 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       setClockIcon(CLOCK_ICONS[hour12]);
 
       // Calculate timezone offset difference using tzOffset
-      const viewerOffset = -now.getTimezoneOffset(); // in minutes
+      const viewerOffset = now.getTimezoneOffset(); // in minutes
       const targetOffset = tzOffset(timeZone, now); // in minutes
 
-      const minutesDiff = Math.abs(targetOffset - viewerOffset);
+      const minutesDiff = targetOffset - viewerOffset;
       const hoursDiff = minutesDiff / 60;
 
       let diff = "";
