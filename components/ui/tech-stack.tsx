@@ -30,6 +30,10 @@ const localThemeIcons: Record<string, { light: string; dark: string }> = {
     light: "/tech-stack-icons/opencode-logo-light.svg",
     dark: "/tech-stack-icons/opencode-logo-dark.svg",
   },
+  vercel: {
+    light: "/tech-stack-icons/vercel-light.svg",
+    dark: "/tech-stack-icons/vercel-dark.svg",
+  },
 };
 
 // Single-color local icons
