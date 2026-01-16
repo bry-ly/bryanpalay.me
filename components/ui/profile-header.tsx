@@ -3,6 +3,7 @@ import { USER } from "@/lib/data/user";
 import { PhilippinesFlagIcon } from "./philippines-flag-icon";
 import { ThemeToggle } from "./theme-toggle";
 import { VerifiedIcon } from "./verified-icon";
+import { FlipSentences } from "./flip-sentences";
 
 export function ProfileHeader() {
   return (
@@ -51,6 +52,18 @@ export function ProfileHeader() {
               className="size-4.5 text-info select-none"
               aria-label="Verified"
             />
+          </div>
+          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
+            <FlipSentences
+              className="font-mono text-sm text-balance text-muted-foreground"
+              variants={{
+                initial: { y: -10, opacity: 0 },
+                animate: { y: -1, opacity: 1 },
+                exit: { y: 10, opacity: 0 },
+              }}
+            >
+              {USER.flipSentences}
+            </FlipSentences>
           </div>
         </div>
       </div>

@@ -36,16 +36,41 @@ export function ProjectItem({
       <div className={className}>
         <div className="flex items-center hover:bg-accent2">
           {project.logo ? (
-            <Image
-              src={project.logo}
-              alt={project.title}
-              width={32}
-              height={32}
-              quality={100}
-              className="mx-4 flex size-6 shrink-0 select-none"
-              unoptimized
-              aria-hidden="true"
-            />
+            project.logoDark ? (
+              <>
+                <Image
+                  src={project.logo}
+                  alt={project.title}
+                  width={32}
+                  height={32}
+                  quality={100}
+                  className="mx-4 flex size-6 shrink-0 select-none dark:hidden"
+                  unoptimized
+                  aria-hidden="true"
+                />
+                <Image
+                  src={project.logoDark}
+                  alt={project.title}
+                  width={32}
+                  height={32}
+                  quality={100}
+                  className="mx-4 hidden size-6 shrink-0 select-none dark:flex"
+                  unoptimized
+                  aria-hidden="true"
+                />
+              </>
+            ) : (
+              <Image
+                src={project.logo}
+                alt={project.title}
+                width={32}
+                height={32}
+                quality={100}
+                className="mx-4 flex size-6 shrink-0 select-none"
+                unoptimized
+                aria-hidden="true"
+              />
+            )
           ) : (
             <div
               className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"

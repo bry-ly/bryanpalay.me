@@ -14,6 +14,18 @@ export const Tech_Stack: TechStack[] = [
     categories: ["Language"],
   },
   {
+    key: "html",
+    title: "HTML",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    categories: ["Language"],
+  },
+  {
+    key: "css",
+    title: "CSS",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    categories: ["Language"],
+  },
+  {
     key: "python",
     title: "Python",
     href: "https://www.python.org/",
@@ -117,10 +129,29 @@ export const Tech_Stack: TechStack[] = [
     theme: true,
   },
   {
+    key: "vscode",
+    title: "VS Code",
+    href: "https://code.visualstudio.com/",
+    categories: ["IDE"],
+  },
+  {
     key: "vercel",
     title: "Vercel",
     href: "https://vercel.com/",
     categories: ["Deployment"],
     theme: true,
+  },
+  {
+    key: "github",
+    title: "GitHub",
+    href: "https://github.com",
+    categories: ["Version Control"],
+    theme: true,
+  },
+  {
+    key: "neon",
+    title: "Neon",
+    href: "https//neon.com",
+    categories: ["Database"],
   },
 ];

@@ -17,7 +17,7 @@ import {
 type JobItemProps = {
   title: string;
   company: string;
-  website: string;
+  website?: string;
 };
 
 export function JobItem({ title, company, website }: JobItemProps) {
@@ -27,13 +27,17 @@ export function JobItem({ title, company, website }: JobItemProps) {
 
       <IntroItemContent>
         {title} @
-        <IntroItemLink
-          className="ml-0.5 font-medium"
-          href={addQueryParams(website, UTM_PARAMS)}
-          aria-label={`${company} website`}
-        >
-          {company}
-        </IntroItemLink>
+        {website ? (
+          <IntroItemLink
+            className="ml-0.5 font-medium"
+            href={addQueryParams(website, UTM_PARAMS)}
+            aria-label={`${company} website`}
+          >
+            {company}
+          </IntroItemLink>
+        ) : (
+          <span className="ml-0.5 font-medium">{company}</span>
+        )}
       </IntroItemContent>
     </IntroItem>
   );
