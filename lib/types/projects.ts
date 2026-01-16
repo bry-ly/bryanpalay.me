@@ -20,6 +20,8 @@ export type Project = {
   description?: string;
   /** Logo image URL (absolute or path under /public). */
   logo?: string;
+  /** Optional logo for dark mode. */
+  logoDark?: string;
   /** Whether the project card is expanded by default in the UI. */
   isExpanded?: boolean;
 };

@@ -52,6 +52,7 @@ export const PROJECTS: Project[] = [
   {
     id: "culm-lms",
     logo: "/images/projects/culm.svg",
+    logoDark: "/images/projects/culm-dark.svg",
     title: "Culm LMS",
     period: {
       start: "12.2025",

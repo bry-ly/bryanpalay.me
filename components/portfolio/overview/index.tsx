@@ -28,7 +28,7 @@ export function Overview() {
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
-        {USER.jobs.map((job, index) => {
+        {USER.jobs?.map((job, index) => {
           return (
             <JobItem
               key={index}
