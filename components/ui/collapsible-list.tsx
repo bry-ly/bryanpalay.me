@@ -56,6 +56,7 @@ export function CollapsibleList<T>({
             <Button
               className="group/collapsible-trigger flex"
               variant="default"
+              aria-label={`Show ${items.length - max} more items`}
             >
               <span className="hidden group-data-[state=closed]/collapsible-trigger:block">
                 Show More
@@ -66,8 +67,8 @@ export function CollapsibleList<T>({
               </span>
 
               <ChevronDownIcon
-                className="group-data-[state=open]/collapsible-trigger:rotate-180"
-                aria-hidden
+                className="group-data-[state=open]/collapsible-trigger:rotate-180 transition-transform duration-200"
+                aria-hidden="true"
               />
             </Button>
           </CollapsibleTrigger>

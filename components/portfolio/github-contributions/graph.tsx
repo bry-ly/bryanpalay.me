@@ -122,8 +122,9 @@ export function GitHubContributionGraph({
 
 export function GitHubContributionFallback() {
   return (
-    <div className="flex h-40.5 w-full items-center justify-center">
+    <div className="flex h-40.5 w-full items-center justify-center" role="status">
       <LoaderIcon className="animate-spin text-muted-foreground" aria-hidden="true" />
+      <span className="sr-only">Loading GitHub contributions</span>
     </div>
   );
 }

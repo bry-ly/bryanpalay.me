@@ -2,7 +2,7 @@
 
 import type { Transition, Variants } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
-import { Children, useEffect, useState } from "react";
+import { Children, useEffect, useState, useCallback, useMemo, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -24,6 +24,7 @@ type Props = {
   variants?: Variants;
 
   onIndexChange?: (index: number) => void;
+  pauseOnHover?: boolean;
 };
 
 export function FlipSentences({
@@ -36,36 +37,62 @@ export function FlipSentences({
   variants = defaultVariants,
 
   onIndexChange,
+  pauseOnHover = true,
 }: Props) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const items = Children.toArray(children);
+  const items = useMemo(() => Children.toArray(children), [children]);
+  const itemsLengthRef = useRef(items.length);
+  itemsLengthRef.current = items.length;
+
+  const onIndexChangeRef = useRef(onIndexChange);
+  onIndexChangeRef.current = onIndexChange;
 
   useEffect(() => {
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => {
-        const next = (prev + 1) % items.length;
-        onIndexChange?.(next);
+        const next = (prev + 1) % itemsLengthRef.current;
+        onIndexChangeRef.current?.(next);
         return next;
       });
     }, interval * 1000);
 
     return () => clearInterval(timer);
-  }, [items.length, interval, onIndexChange]);
+  }, [interval, isPaused]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (pauseOnHover) setIsPaused(true);
+  }, [pauseOnHover]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (pauseOnHover) setIsPaused(false);
+  }, [pauseOnHover]);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <Component
-        key={currentIndex}
-        className={cn("inline-block", className)}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={transition}
-        variants={variants}
-      >
-        {items[currentIndex]}
-      </Component>
-    </AnimatePresence>
+    <span
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        <Component
+          key={currentIndex}
+          className={cn("inline-block", className)}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={transition}
+          variants={variants}
+        >
+          {items[currentIndex]}
+        </Component>
+      </AnimatePresence>
+    </span>
   );
 }

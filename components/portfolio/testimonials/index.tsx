@@ -53,12 +53,15 @@ export function Testimonials() {
       </PanelHeader>
 
       <PanelContent className="relative">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
+        <div className="overflow-hidden" ref={emblaRef} aria-roledescription="carousel" aria-label="Testimonials">
+          <div className="flex" aria-live="polite">
             {TESTIMONIALS.map((testimonial, index) => (
               <div
                 key={testimonial.id}
                 className="flex-[0_0_100%] min-w-0 px-4"
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`Testimonial ${index + 1} of ${TESTIMONIALS.length}`}
               >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}

@@ -80,47 +80,56 @@ export function ProjectItem({
             </div>
           )}
 
-          <div className="flex-1 border-l border-dashed border-edge">
-            <CollapsibleTrigger className="flex w-full items-center gap-2 p-4 pr-2 text-left">
-              <div className="flex-1">
-                <h3 className="mb-1 leading-snug font-medium text-balance">
-                  {project.title}
-                </h3>
+        <div className="flex-1 border-l border-dashed border-edge">
+            <div className="flex w-full items-center gap-2 p-4 pr-2">
+              <CollapsibleTrigger className="flex flex-1 items-center gap-2 text-left">
+                <div className="flex-1">
+                  <h3 className="mb-1 leading-snug font-medium text-balance">
+                    {project.title}
+                  </h3>
 
-                <dl className="text-sm text-muted-foreground">
-                  <dt className="sr-only">Period</dt>
-                  <dd className="flex items-center gap-0.5">
-                    <span>{start}</span>
-                    {!isSinglePeriod && (
-                      <>
-                        <span className="font-mono">—</span>
-                        {isOngoing ? (
-                          <>
-                            <InfinityIcon
-                              className="size-4.5 translate-y-[0.5px]"
-                              aria-hidden
-                            />
-                            <span className="sr-only">Present</span>
-                          </>
-                        ) : (
-                          <span>{end}</span>
-                        )}
-                      </>
-                    )}
-                  </dd>
-                </dl>
-              </div>
+                  <dl className="text-sm text-muted-foreground">
+                    <dt className="sr-only">Period</dt>
+                    <dd className="flex items-center gap-0.5">
+                      <span>{start}</span>
+                      {!isSinglePeriod && (
+                        <>
+                          <span className="font-mono">—</span>
+                          {isOngoing ? (
+                            <>
+                              <InfinityIcon
+                                className="size-4.5 translate-y-[0.5px]"
+                                aria-hidden
+                              />
+                              <span className="sr-only">Present</span>
+                            </>
+                          ) : (
+                            <span>{end}</span>
+                          )}
+                        </>
+                      )}
+                    </dd>
+                  </dl>
+                </div>
+
+                <div
+                  className="shrink-0 text-muted-foreground [&_svg]:size-4"
+                  aria-hidden
+                >
+                  <CollapsibleChevronsIcon />
+                </div>
+              </CollapsibleTrigger>
 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
-                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
+                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
                     href={addQueryParams(project.link, UTM_PARAMS)}
                     target="_blank"
                     rel="noopener"
+                    aria-label={`Open ${project.title} project link`}
                   >
-                    <LinkIcon className="pointer-events-none size-4" />
-                    <span className="sr-only">Open Project Link</span>
+                    <LinkIcon className="pointer-events-none size-4" aria-hidden="true" />
                   </a>
                 </TooltipTrigger>
 
@@ -128,14 +137,7 @@ export function ProjectItem({
                   <p>Open Project Link</p>
                 </TooltipContent>
               </Tooltip>
-
-              <div
-                className="shrink-0 text-muted-foreground [&_svg]:size-4"
-                aria-hidden
-              >
-                <CollapsibleChevronsIcon />
-              </div>
-            </CollapsibleTrigger>
+            </div>
           </div>
         </div>
 

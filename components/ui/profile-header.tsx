@@ -27,6 +27,7 @@ export function ProfileHeader() {
           target="_blank"
           rel="noreferrer"
           className="absolute top-0 -left-px"
+          aria-label="Learn about the Philippines"
         >
           <PhilippinesFlagIcon />
         </a>
@@ -62,7 +63,9 @@ export function ProfileHeader() {
                 exit: { y: 10, opacity: 0 },
               }}
             >
-              {USER.flipSentences}
+              {USER.flipSentences.map((sentence) => (
+                <span key={sentence}>{sentence}</span>
+              ))}
             </FlipSentences>
           </div>
         </div>

@@ -20,11 +20,12 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
         <Image
           className="rounded-xl select-none corner-squircle supports-corner-shape:rounded-[50%]"
           src={icon}
-          alt={title}
+          alt=""
           width={48}
           height={48}
           quality={100}
           unoptimized
+          aria-hidden="true"
         />
         <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 corner-squircle ring-inset dark:ring-white/15 supports-corner-shape:rounded-[50%]" />
       </div>

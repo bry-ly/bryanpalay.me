@@ -3,9 +3,10 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import { Badge } from "@/components/ui/badge";
 import { ExternalLinkIcon, BoxIcon, SearchIcon, XIcon } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/types/projects";
@@ -53,8 +54,10 @@ export function ProjectsFilter({ projects, allSkills }: ProjectsFilterProps) {
     <div className="border-x border-edge">
       <div className="p-4 border-b border-edge space-y-4">
         <div className="relative">
-          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+          <label htmlFor="project-search" className="sr-only">Search projects</label>
+          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" aria-hidden="true" />
           <input
+            id="project-search"
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
@@ -65,27 +68,29 @@ export function ProjectsFilter({ projects, allSkills }: ProjectsFilterProps) {
             <button
               onClick={() => setSearchQuery("")}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
             >
-              <XIcon className="size-4" />
+              <XIcon className="size-4" aria-hidden="true" />
             </button>
           )}
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by skills">
           {allSkills.map((skill) => (
-            <Badge
+            <button
               key={skill}
-              variant={selectedSkills.includes(skill) ? "default" : "outline"}
-              className={cn(
-                "cursor-pointer transition-colors",
-                selectedSkills.includes(skill)
-                  ? "bg-primary text-primary-foreground"
-                  : "hover:bg-accent"
-              )}
+              type="button"
               onClick={() => toggleSkill(skill)}
+              aria-pressed={selectedSkills.includes(skill)}
+              className={cn(
+                "inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                selectedSkills.includes(skill)
+                  ? "border-transparent bg-primary text-primary-foreground"
+                  : "border-input bg-background hover:bg-accent"
+              )}
             >
               {skill}
-            </Badge>
+            </button>
           ))}
         </div>
 
@@ -132,7 +137,7 @@ export function ProjectsFilter({ projects, allSkills }: ProjectsFilterProps) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group rounded-xl border border-edge bg-card hover:bg-accent2 transition-all duration-300 overflow-hidden">
+    <div className="group rounded-xl border border-edge bg-card hover:bg-accent2 transition-colors duration-300 overflow-hidden">
       <div className="p-4">
         <div className="flex items-start gap-4">
           {project.logo ? (
@@ -180,8 +185,9 @@ function ProjectCard({ project }: { project: Project }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={`Open ${project.title} website`}
                 >
-                  <ExternalLinkIcon className="size-4" />
+                  <ExternalLinkIcon className="size-4" aria-hidden="true" />
                 </a>
               )}
             </div>

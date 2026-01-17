@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider/theme-provider";
 import { META_THEME_COLORS } from "@/lib/config/site";
-import { SiteFooter } from "@/components/layout/footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <SiteFooter/>
+         
         </ThemeProvider>
       </body>
     </html>
