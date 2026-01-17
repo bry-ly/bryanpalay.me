@@ -4,6 +4,7 @@ export const USER: User = {
   firstName: "Bryan",
   lastName: "Palay",
   displayName: "Bryan Palay",
+  displayNameBaybayin: "ᜊ᜔ᜍ᜔ᜌᜈ᜔ ᜉᜎᜌ᜔",
   username: "bry-ly",
   gender: "male",
   pronouns: "he/him",
