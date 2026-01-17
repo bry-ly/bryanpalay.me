@@ -9,9 +9,6 @@ import { FlipName } from "./flip-name";
 export function ProfileHeader() {
   return (
     <div className="screen-line-after relative flex border-x border-edge">
-      <div>
-        <ThemeToggle className="absolute top-2 right-2 z-10" />
-      </div>
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-0.75">
           <img

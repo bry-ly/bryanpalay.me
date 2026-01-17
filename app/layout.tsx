@@ -5,7 +5,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider/theme-provider";
 import { META_THEME_COLORS } from "@/lib/config/site";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   title: "Bryan Palay",
   description: "Portfolio Website",
   icons: {
-    icon: '/images/bryanpalay.jpg',
+    icon: "/images/bryanpalay.jpg",
   },
 };
 
@@ -38,10 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content={META_THEME_COLORS.light} media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content={META_THEME_COLORS.dark} media="(prefers-color-scheme: dark)" />
+        <meta
+          name="theme-color"
+          content={META_THEME_COLORS.light}
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content={META_THEME_COLORS.dark}
+          media="(prefers-color-scheme: dark)"
+        />
       </head>
-<body
+      <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansTagalog.variable} antialiased`}
       >
         <ThemeProvider
@@ -51,7 +58,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-         
         </ThemeProvider>
       </body>
     </html>
