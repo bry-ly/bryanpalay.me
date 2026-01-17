@@ -4,6 +4,7 @@ import { PhilippinesFlagIcon } from "./philippines-flag-icon";
 import { ThemeToggle } from "./theme-toggle";
 import { VerifiedIcon } from "./verified-icon";
 import { FlipSentences } from "./flip-sentences";
+import { FlipName } from "./flip-name";
 
 export function ProfileHeader() {
   return (
@@ -46,7 +47,11 @@ export function ProfileHeader() {
         <div className="border-t border-edge">
           <div className="flex items-center gap-2 pl-4">
             <h1 className="-translate-y-px text-3xl font-semibold">
-              {USER.displayName}
+              <FlipName
+                name={USER.displayName}
+                nameBaybayin={USER.displayNameBaybayin}
+                interval={3}
+              />
             </h1>
 
             <VerifiedIcon
