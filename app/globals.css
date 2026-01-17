@@ -45,6 +45,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-tagalog: var(--font-tagalog);
 
   --shadow-popover: var(--shadow-popover);
 
@@ -90,6 +91,10 @@
 
 @utility link {
   @apply font-medium underline underline-offset-4;
+}
+
+@utility font-tagalog {
+  font-family: var(--font-tagalog);
 }
 
 @utility screen-line-before {

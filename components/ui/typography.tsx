@@ -82,13 +82,13 @@ function Heading<T extends HeadingTypes = "h1">({
       className={cn("flex flex-row items-center gap-2", className)}
       {...props}
     >
-      <a href={`#${props.id}`} className="peer not-prose">
-        {props.children}
-      </a>
+    <a href={`#${props.id}`} className="peer not-prose" aria-label={`Link to ${typeof props.children === 'string' ? props.children : 'section'}`}>
+      {props.children}
+    </a>
 
       <LinkIcon
-        className="size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity peer-hover:opacity-100"
-        aria-label="Link to section"
+        className="size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity peer-hover:opacity-100 peer-focus:opacity-100 peer-focus-visible:opacity-100"
+        aria-hidden="true"
       />
     </Comp>
   );

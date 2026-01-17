@@ -100,7 +100,10 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
           <Clock12Icon />
         </IntroItemIcon>
 
-        <IntroItemContent>00:00</IntroItemContent>
+        <IntroItemContent aria-label="Loading time">
+          <span aria-hidden="true">00:00</span>
+          <span className="sr-only">Loading local time</span>
+        </IntroItemContent>
       </IntroItem>
     );
   }

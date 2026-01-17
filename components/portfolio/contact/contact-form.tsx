@@ -80,8 +80,8 @@ export function ContactForm() {
             placeholder="Your name"
             className={cn(
               "w-full h-10 px-4 rounded-lg border border-input bg-background text-sm",
-              "placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring",
-              "transition-all duration-200"
+              "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              "transition-colors duration-200"
             )}
           />
         </div>
@@ -97,8 +97,8 @@ export function ContactForm() {
             placeholder="your@email.com"
             className={cn(
               "w-full h-10 px-4 rounded-lg border border-input bg-background text-sm",
-              "placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring",
-              "transition-all duration-200"
+              "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              "transition-colors duration-200"
             )}
           />
         </div>
@@ -116,8 +116,8 @@ export function ContactForm() {
           placeholder="What's this about?"
           className={cn(
             "w-full h-10 px-4 rounded-lg border border-input bg-background text-sm",
-            "placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring",
-            "transition-all duration-200"
+            "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "transition-colors duration-200"
           )}
         />
       </div>
@@ -134,8 +134,8 @@ export function ContactForm() {
           placeholder="Tell me about your project or idea..."
           className={cn(
             "w-full px-4 py-3 rounded-lg border border-input bg-background text-sm resize-none",
-            "placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring",
-            "transition-all duration-200"
+            "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "transition-colors duration-200"
           )}
         />
       </div>

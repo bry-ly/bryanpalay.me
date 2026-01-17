@@ -8,6 +8,7 @@ import { Projects } from "@/components/portfolio/projects";
 import { SocialLinks } from "@/components/portfolio/social-links";
 import { TeckStack } from "@/components/ui/tech-stack";
 import { QuickLinks } from "@/components/portfolio/quick-links";
+import { SiteFooter } from "@/components/layout/footer";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +22,7 @@ export default function Page() {
         }}
       />
 
-      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
+      <div className="mx-auto px-4 md:px-0 md:max-w-2xl *:[[id]]:scroll-mt-22">
         <Separator />
         <ProfileHeader />
         <Separator />
@@ -47,6 +48,7 @@ export default function Page() {
         <Projects />
         <Separator />
       </div>
+      <SiteFooter />
     </>
   );
 }

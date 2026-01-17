@@ -136,7 +136,7 @@ function TechBadge({ tech }: { tech: TechStackType }) {
   return (
     <Badge
       variant="outline"
-      className="h-8 gap-2 px-2 text-sm font-normal cursor-pointer transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800 border-none "
+      className="h-8 gap-2 px-2 text-sm font-normal transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-800 border-none"
       asChild
     >
       <a

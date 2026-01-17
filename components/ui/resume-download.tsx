@@ -30,7 +30,7 @@ export function ResumeDownload({ resumeUrl = "/resume.pdf" }: ResumeDownloadProp
           className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-xl border border-edge bg-card"
         >
           <div className="flex items-center gap-4">
-            <div className="size-12 rounded-lg bg-muted flex items-center justify-center">
+            <div className="size-12 rounded-lg bg-muted flex items-center justify-center" aria-hidden="true">
               <FileTextIcon className="size-6 text-muted-foreground" />
             </div>
             <div>

@@ -3,6 +3,8 @@ export type User = {
   lastName: string;
   /** Preferred public-facing name */
   displayName: string;
+  /** Display name in Baybayin script */
+  displayNameBaybayin?: string;
   /** Handle/username used in links or mentions */
   username: string;
   gender: "male" | "female" | "non-binary";
