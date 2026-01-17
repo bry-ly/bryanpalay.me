@@ -18,4 +18,10 @@ export type TechStack = {
   categories: string[];
   /** If true, use theme-specific icons for dark/light mode. */
   theme?: boolean;
+  /** Proficiency level: 1 (beginner) to 5 (expert) */
+  proficiency?: number;
+  /** Years of experience with this technology */
+  yearsOfExperience?: number;
 };
+
+export type SkillCategory = "all" | "frontend" | "backend" | "database" | "tools";
