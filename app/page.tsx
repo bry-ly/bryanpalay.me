@@ -11,7 +11,8 @@ import { QuickLinks } from "@/components/portfolio/quick-links";
 import { SiteFooter } from "@/components/layout/footer";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
-
+import { SiteHeader } from "@/components/layout/header";
+import { DitheringResponsive } from "@/components/ui/dithering-responsive";
 export default function Page() {
   return (
     <>
@@ -21,9 +22,12 @@ export default function Page() {
           __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
         }}
       />
-
-      <div className="mx-auto px-4 md:px-0 md:max-w-2xl *:[[id]]:scroll-mt-22">
+      <SiteHeader />
+      <div className="mx-auto px-4 md:px-0 md:max-w-3xl *:[[id]]:scroll-mt-22">
         <Separator />
+        <DitheringResponsive />
+        <Separator />
+
         <ProfileHeader />
         <Separator />
 
