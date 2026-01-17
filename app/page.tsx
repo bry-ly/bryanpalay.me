@@ -1,13 +1,13 @@
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { About } from "@/components/portfolio/about";
-// import { Experiences } from "@/components/portfolio/experiences";
 import { GitHubContributions } from "@/components/portfolio/github-contributions";
 import { Overview } from "@/components/portfolio/overview";
 import { ProfileHeader } from "@/components/ui/profile-header";
 import { Projects } from "@/components/portfolio/projects";
 import { SocialLinks } from "@/components/portfolio/social-links";
 import { TeckStack } from "@/components/ui/tech-stack";
+import { QuickLinks } from "@/components/portfolio/quick-links";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
 
@@ -32,6 +32,9 @@ export default function Page() {
         <SocialLinks />
         <Separator />
 
+        <QuickLinks />
+        <Separator />
+
         <About />
         <Separator />
 
@@ -41,8 +44,6 @@ export default function Page() {
         <TeckStack />
         <Separator />
 
-        {/*<Experiences />
-        <Separator />*/}
         <Projects />
         <Separator />
       </div>
