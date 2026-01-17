@@ -30,8 +30,8 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL || "your-email@example.com",
+      from: "Portfolio Contact <send@bryanpalay.me>",
+      to: process.env.CONTACT_EMAIL || "bryanpalay.me",
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `
