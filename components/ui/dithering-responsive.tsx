@@ -9,7 +9,9 @@ export function DitheringResponsive() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Small delay to ensure client-side rendering matches expectations
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   // Default to light mode values if not mounted to match likely server default or avoid flash

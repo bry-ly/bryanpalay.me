@@ -7,7 +7,6 @@ import { ProfileHeader } from "@/components/ui/profile-header";
 import { Projects } from "@/components/portfolio/projects";
 import { SocialLinks } from "@/components/portfolio/social-links";
 import { TeckStack } from "@/components/ui/tech-stack";
-import { QuickLinks } from "@/components/portfolio/quick-links";
 import { SiteFooter } from "@/components/layout/footer";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
@@ -24,8 +23,7 @@ export default function Page() {
       />
       <SiteHeader />
       <div className="mx-auto px-4 md:px-0 md:max-w-3xl *:[[id]]:scroll-mt-22">
-        <Separator />
-        <DitheringResponsive />
+        <DitheringResponsive/>
         <Separator />
 
         <ProfileHeader />
