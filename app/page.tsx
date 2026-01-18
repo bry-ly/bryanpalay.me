@@ -11,6 +11,7 @@ import { SiteFooter } from "@/components/layout/footer";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/layout/header";
+import { DitheringResponsive } from "@/components/ui/dithering-responsive";
 export default function Page() {
   return (
     <>
@@ -22,6 +23,7 @@ export default function Page() {
       />
       <SiteHeader />
       <div className="mx-auto px-4 md:px-0 md:max-w-3xl *:[[id]]:scroll-mt-22">
+        <DitheringResponsive/>
         <Separator />
 
         <ProfileHeader />
