@@ -2,11 +2,20 @@ import { SOURCE_CODE_GITHUB_URL } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "./icons";
+import { DitheringResponsive } from "@/components/ui/dithering-responsive";
+import { SiteHeaderMark } from "@/components/layout/site-header-mark";
 
 export function SiteFooter() {
   return (
     <footer className="max-w-screen overflow-x-hidden px-2">
       <div className="screen-line-before mx-auto border-x border-edge pt-4 md:max-w-3xl">
+        <div className="relative mb-8 w-full border-y border-edge">
+          <DitheringResponsive />
+          <div className="absolute inset-0 flex items-center justify-center">
+             <SiteHeaderMark className="text-3xl" />
+          </div>
+        </div>
+
         <p className="mb-1 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
           Inspired by ncdai, tailwindcss.com & ui.shadcn.com
         </p>
