@@ -29,7 +29,7 @@ export function Nav({
             href={href}
             className={cn(
               "font-mono text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground",
-              active && "text-foreground"
+              active && "text-foreground",
             )}
           >
             {title}

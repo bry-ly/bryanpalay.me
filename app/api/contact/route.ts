@@ -1,3 +1,5 @@
+import "server-only";
+
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -7,7 +9,7 @@ export async function POST(request: NextRequest) {
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { message: "All fields are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -15,14 +17,19 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { message: "Invalid email address" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    
+
     if (!apiKey) {
-      console.log("Contact form submission (no API key configured):", { name, email, subject, message });
+      console.log("Contact form submission (no API key configured):", {
+        name,
+        email,
+        subject,
+        message,
+      });
       return NextResponse.json({ message: "Message received successfully" });
     }
 
@@ -49,7 +56,7 @@ export async function POST(request: NextRequest) {
     console.error("Contact form error:", error);
     return NextResponse.json(
       { message: "Failed to send message. Please try again later." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

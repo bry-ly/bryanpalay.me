@@ -37,9 +37,6 @@ export default function Page() {
         <SocialLinks />
         <Separator />
 
-        <QuickLinks />
-        <Separator />
-
         <About />
         <Separator />
 
