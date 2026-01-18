@@ -39,9 +39,10 @@ export function GitHubContributionGraph({
       <ContributionGraph
         className="mx-auto py-2"
         data={data}
-        blockSize={11}
-        blockMargin={3}
-        blockRadius={0}
+        blockSize={10}
+        blockMargin={2}
+        blockRadius={2}
+        fontSize={12}
       >
         <ContributionGraphCalendar
           className="no-scrollbar px-2"
@@ -55,13 +56,7 @@ export function GitHubContributionGraph({
                     activity={activity}
                     dayIndex={dayIndex}
                     weekIndex={weekIndex}
-                    className={`
-                      data-[level="0"]:fill-muted
-                      data-[level="1"]:fill-emerald-200 data-[level="1"]:dark:fill-emerald-900
-                      data-[level="2"]:fill-emerald-400 data-[level="2"]:dark:fill-emerald-700
-                      data-[level="3"]:fill-emerald-600 data-[level="3"]:dark:fill-emerald-500
-                      data-[level="4"]:fill-emerald-800 data-[level="4"]:dark:fill-emerald-300
-                    `}
+                    className="data-[level='0']:fill-muted data-[level='1']:fill-foreground/20 data-[level='2']:fill-foreground/40 data-[level='3']:fill-foreground/60 data-[level='4']:fill-foreground/80"
                   />
                 </g>
               </TooltipTrigger>
@@ -80,7 +75,7 @@ export function GitHubContributionGraph({
           <ContributionGraphTotalCount>
             {({ totalCount, year }) => (
               <div className="flex items-center gap-2">
-                <span className="text-muted-foreground text-sm">
+                <span className="text-muted-foreground text-xs">
                   {year} on{" "}
                   <a
                     className="font-medium underline underline-offset-4"
@@ -92,7 +87,7 @@ export function GitHubContributionGraph({
                   </a>
                   :
                 </span>
-                <Badge variant="secondary">
+                <Badge variant="default">
                   {totalCount.toLocaleString("en")} contributions
                 </Badge>
               </div>
@@ -106,7 +101,7 @@ export function GitHubContributionGraph({
                 data-level={level}
               >
                 <div
-                  className={`h-full w-full rounded-sm border border-border ${level === 0 ? "bg-muted" : ""} ${level === 1 ? "bg-emerald-200 dark:bg-emerald-900" : ""} ${level === 2 ? "bg-emerald-400 dark:bg-emerald-700" : ""} ${level === 3 ? "bg-emerald-600 dark:bg-emerald-500" : ""} ${level === 4 ? "bg-emerald-800 dark:bg-emerald-300" : ""} `}
+                  className={`h-full w-full rounded-sm border border-border ${level === 0 ? "bg-muted" : ""} ${level === 1 ? "bg-foreground/20" : ""} ${level === 2 ? "bg-foreground/40" : ""} ${level === 3 ? "bg-foreground/60" : ""} ${level === 4 ? "bg-foreground/80" : ""} `}
                 />
                 <span className="-top-8 absolute hidden rounded bg-popover px-2 py-1 text-popover-foreground text-xs shadow-md group-hover:block">
                   Level {level}
@@ -122,8 +117,14 @@ export function GitHubContributionGraph({
 
 export function GitHubContributionFallback() {
   return (
-    <div className="flex h-40.5 w-full items-center justify-center" role="status">
-      <LoaderIcon className="animate-spin text-muted-foreground" aria-hidden="true" />
+    <div
+      className="flex h-40.5 w-full items-center justify-center"
+      role="status"
+    >
+      <LoaderIcon
+        className="animate-spin text-muted-foreground"
+        aria-hidden="true"
+      />
       <span className="sr-only">Loading GitHub contributions</span>
     </div>
   );

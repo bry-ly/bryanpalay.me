@@ -16,12 +16,7 @@ export function DitheringResponsive() {
   // However, without knowing server theme, mismatch is possible.
   // Rendering nothing or a placeholder is safest for hydration.
   if (!mounted) {
-    return (
-      <div 
-        className="w-full h-[220px] bg-background" 
-        aria-hidden="true"
-      />
-    );
+    return <div className="w-full h-55 bg-background" aria-hidden="true" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -41,8 +36,8 @@ export function DitheringResponsive() {
       shape="warp"
       type="4x4"
       size={1.5}
-      speed={0.60}
-      className="w-full rounded-none" // Added rounded-md to match general aesthetics if needed, can remove
+      speed={0.6}
+      className="w-full rounded-none" // Added rounded-none to match general aesthetics if needed, can remove
     />
   );
 }
