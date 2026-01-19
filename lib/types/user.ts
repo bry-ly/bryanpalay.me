@@ -33,6 +33,8 @@ export type User = {
   about: string;
   /** Public URL to avatar image */
   avatar: string;
+  /** Alternative avatar image URL for toggle effect */
+  avatarAlt?: string;
   /** Open Graph image URL for social sharing */
   ogImage: string;
   /** Audio URL for name pronunciation */
