@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
-import { PageTransition, FadeIn } from "@/components/ui/page-transition";
+import { PageTransition, FadeIn } from "@/components/ui/animations/page-transition";
 import { ContactForm } from "@/components/portfolio/contact/contact-form";
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";

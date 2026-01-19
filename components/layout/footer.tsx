@@ -2,7 +2,7 @@ import { SOURCE_CODE_GITHUB_URL } from "@/lib/config/site";
 import { cn } from "@/lib/utils";
 
 import { Icons } from "./icons";
-import { DitheringResponsive } from "@/components/ui/dithering-responsive";
+import { DitheringResponsive } from "@/components/ui/animations/dithering-responsive";
 import { SiteHeaderMark } from "@/components/layout/site-header-mark";
 
 export function SiteFooter() {

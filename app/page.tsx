@@ -3,15 +3,15 @@ import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 import { About } from "@/components/portfolio/about";
 import { GitHubContributions } from "@/components/portfolio/github-contributions";
 import { Overview } from "@/components/portfolio/overview";
-import { ProfileHeader } from "@/components/ui/profile-header";
+import { ProfileHeader } from "@/components/ui/profile/profile-header";
 import { Projects } from "@/components/portfolio/projects";
 import { SocialLinks } from "@/components/portfolio/social-links";
-import { TeckStack } from "@/components/ui/tech-stack";
+import { TeckStack } from "@/components/ui/features/tech-stack";
 import { SiteFooter } from "@/components/layout/footer";
 import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/layout/header";
-import { DitheringResponsive } from "@/components/ui/dithering-responsive";
+import { DitheringResponsive } from "@/components/ui/animations/dithering-responsive";
 export default function Page() {
   return (
     <>

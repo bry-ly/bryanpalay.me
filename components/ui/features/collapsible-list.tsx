@@ -2,12 +2,12 @@ import { ChevronDownIcon } from "lucide-react";
 import { Slot as SlotPrimitive } from "@radix-ui/react-slot";
 import React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "@/components/ui/primitives/collapsible";
 
 const Slot = SlotPrimitive;
 

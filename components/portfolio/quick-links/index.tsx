@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { FolderOpenIcon } from "@/components/animated-icons/folder-icon";
-import { MailIcon } from "@/components/animated-icons/mail-icon";
-import { NewspaperIcon } from "@/components/animated-icons/newspaper-icon";
+import { FolderOpenIcon } from "@/components/ui/icons/folder-icon";
+import { MailIcon } from "@/components/ui/icons/mail-icon";
+import { NewspaperIcon } from "@/components/ui/icons/newspaper-icon";
 import {
   Panel,
   PanelContent,
   PanelHeader,
   PanelTitle,
 } from "@/components/layout/panel";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 
 const QUICK_LINKS = [
   {

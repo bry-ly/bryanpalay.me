@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import { cn } from "@/lib/utils";
 
 export function CommandMenu({ className }: { className?: string }) {

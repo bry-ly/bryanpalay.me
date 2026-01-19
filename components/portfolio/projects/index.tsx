@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import { CollapsibleList } from "@/components/ui/collapsible-list";
+import { CollapsibleList } from "@/components/ui/features/collapsible-list";
 
 import { PROJECTS } from "@/lib/data/projects";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "@/components/layout/panel";

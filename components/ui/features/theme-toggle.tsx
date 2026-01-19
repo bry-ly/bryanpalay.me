@@ -8,11 +8,11 @@ import { META_THEME_COLORS } from "@/lib/config/site";
 import { useMetaColor } from "@/hooks/use-meta-color";
 import { useSound } from "@/hooks/use-sound";
 
-import { MoonIcon } from "../animated-icons/moon";
-import { SunMediumIcon } from "../animated-icons/sun";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
-import { Button } from "./button";
-import { Kbd } from "./kbd";
+import { MoonIcon } from "@/components/ui/icons/moon";
+import { SunMediumIcon } from "@/components/ui/icons/sun";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/primitives/tooltip";
+import { Button } from "@/components/ui/primitives/button";
+import { Kbd } from "@/components/ui/display/kbd";
 
 export function ThemeToggle({
   className,

@@ -3,7 +3,7 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/lib/types/nav";
 

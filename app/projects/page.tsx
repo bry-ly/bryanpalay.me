@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { PROJECTS } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
-import { PageTransition, FadeIn } from "@/components/ui/page-transition";
+import { PageTransition, FadeIn } from "@/components/ui/animations/page-transition";
 import { ProjectsFilter } from "@/components/portfolio/projects/projects-filter";
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";

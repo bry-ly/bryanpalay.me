@@ -8,8 +8,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Badge } from "@/components/ui/badge";
+} from "@/components/ui/primitives/tooltip";
+import { Badge } from "@/components/ui/primitives/badge";
 import type { Activity } from "@/components/kibo-ui/contribution-graph";
 import {
   ContributionGraph,
