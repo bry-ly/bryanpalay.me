@@ -25,9 +25,9 @@ export const USER: User = {
 - Proficient in **Next.js**, **React**, and **TypeScript**, focusing on clean code and performance.
 - Always eager to learn new technologies and apply them to solve real-world problems.
 `,
-  avatar: "/images/bryanpalay.jpg",
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?v=4",
+  avatar: "/images/icon/bryanpalay.jpg",
+  avatarAlt: "/images/icon/luffy.jpg",
+  ogImage: "/images/luffy.jpg",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   timeZone: "Asia/Manila",
   keywords: [
