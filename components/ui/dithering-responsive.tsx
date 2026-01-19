@@ -38,7 +38,7 @@ export function DitheringResponsive() {
       shape="warp"
       type="4x4"
       size={1.5}
-      speed={0.6}
+      speed={0.5}
       className="w-full rounded-none" // Added rounded-none to match general aesthetics if needed, can remove
     />
   );
