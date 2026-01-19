@@ -6,8 +6,19 @@ import type { BlogPost, BlogPostWithContent } from "./types/blog";
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
 
+let cachedPosts: BlogPost[] | null = null;
+let cacheTimestamp = 0;
+const CACHE_TTL = process.env.NODE_ENV === "production" ? 60 * 60 * 1000 : 5000;
+
 export function getAllPosts(): BlogPost[] {
+  const now = Date.now();
+  if (cachedPosts && now - cacheTimestamp < CACHE_TTL) {
+    return cachedPosts;
+  }
+
   if (!fs.existsSync(postsDirectory)) {
+    cachedPosts = [];
+    cacheTimestamp = now;
     return [];
   }
 
@@ -35,6 +46,8 @@ export function getAllPosts(): BlogPost[] {
     .filter((post) => post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+  cachedPosts = allPosts;
+  cacheTimestamp = now;
   return allPosts;
 }
 

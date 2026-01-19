@@ -2,21 +2,16 @@
 
 import { Dithering } from "@paper-design/shaders-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export function DitheringResponsive() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    // Small delay to ensure client-side rendering matches expectations
-    const timer = setTimeout(() => setMounted(true), 0);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Default to light mode values if not mounted to match likely server default or avoid flash
-  // However, without knowing server theme, mismatch is possible.
-  // Rendering nothing or a placeholder is safest for hydration.
   if (!mounted) {
     return <div className="w-full h-55 bg-background" aria-hidden="true" />;
   }
