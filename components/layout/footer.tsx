@@ -17,7 +17,33 @@ export function SiteFooter() {
         </div>
 
         <p className="mb-1 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
-          Inspired by ncdai, tailwindcss.com & ui.shadcn.com
+          Inspired by{" "}
+          <a
+            className="link"
+            href="https://chanhdai.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            ncdai
+          </a>
+          ,{" "}
+          <a
+            className="link"
+            href="https://tailwindcss.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            tailwindcss.com
+          </a>
+          {" & "}
+          <a
+            className="link"
+            href="https://ui.shadcn.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            ui.shadcn.com
+          </a>
         </p>
 
         <p className="mb-4 px-4 text-center font-mono text-sm text-balance text-muted-foreground">
