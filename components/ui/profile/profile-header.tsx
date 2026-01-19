@@ -8,10 +8,10 @@ import { USER } from "@/lib/data/user";
 
 import { PhilippinesFlagIcon } from "./philippines-flag-icon";
 import { VerifiedIcon } from "./verified-icon";
-import { FlipSentences } from "./flip-sentences";
-import { FlipName } from "./flip-name";
-import { Tooltip, TooltipTrigger, TooltipContent } from "./tooltip";
-import { Kbd } from "./kbd";
+import { FlipSentences } from "@/components/ui/animations/flip-sentences";
+import { FlipName } from "@/components/ui/animations/flip-name";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/primitives/tooltip";
+import { Kbd } from "@/components/ui/display/kbd";
 
 export function ProfileHeader() {
   const [isAltAvatar, setIsAltAvatar] = useState(false);

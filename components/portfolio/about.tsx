@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { Markdown } from "@/components/ui/markdown";
-import { ProseMono } from "@/components/ui/typography";
+import { Markdown } from "@/components/ui/display/markdown";
+import { ProseMono } from "@/components/ui/display/typography";
 import { USER } from "@/lib/data/user";
 
 import {

@@ -1,16 +1,16 @@
 import { InfinityIcon } from "lucide-react";
 import React from "react";
 
-import { Markdown } from "@/components/ui/markdown";
+import { Markdown } from "@/components/ui/display/markdown";
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
-import { Tag } from "@/components/ui/tag";
-import { ProseMono } from "@/components/ui/typography";
+} from "@/components/ui/primitives/collapsible";
+import { Separator } from "@/components/ui/primitives/separator";
+import { Tag } from "@/components/ui/display/tag";
+import { ProseMono } from "@/components/ui/display/typography";
 import { cn } from "@/lib/utils";
 
 import type { ExperiencePosition } from "@/lib/types/experiences";

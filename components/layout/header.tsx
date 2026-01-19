@@ -6,7 +6,7 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 // import { CommandMenu } from "@/components/layout/command-menu";
 import { NavItemGitHub } from "@/components/layout/nav-item-github";
 import { SiteHeaderMark } from "@/components/layout/site-header-mark";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ThemeToggle } from "@/components/ui/features/theme-toggle";
 
 import { SiteHeaderWrapper } from "./wrapper";
 

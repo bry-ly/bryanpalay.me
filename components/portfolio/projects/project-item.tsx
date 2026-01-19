@@ -1,20 +1,20 @@
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
-import { Markdown } from "@/components/ui/markdown";
+import { Markdown } from "@/components/ui/display/markdown";
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
   CollapsibleTrigger,
   CollapsibleWithContext,
-} from "@/components/ui/collapsible";
-import { Tag } from "@/components/ui/tag";
+} from "@/components/ui/primitives/collapsible";
+import { Tag } from "@/components/ui/display/tag";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { ProseMono } from "@/components/ui/typography";
+} from "@/components/ui/primitives/tooltip";
+import { ProseMono } from "@/components/ui/display/typography";
 import { UTM_PARAMS } from "@/lib/config/site";
 import { addQueryParams } from "@/utils/url";
 

@@ -14,8 +14,8 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/primitives/collapsible";
+import { Separator } from "@/components/ui/primitives/separator";
 import { cn } from "@/lib/utils";
 
 const iconMap = {

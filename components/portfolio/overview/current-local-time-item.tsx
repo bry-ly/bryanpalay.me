@@ -22,7 +22,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/primitives/tooltip";
 
 import { IntroItem, IntroItemContent, IntroItemIcon } from "./intro-item";
 

@@ -34,7 +34,7 @@ export const MAIN_NAV: NavItem[] = [
 ];
 
 export const GITHUB_USERNAME = "bry-ly";
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com";
+export const SOURCE_CODE_GITHUB_REPO = "bry-ly/bryanpalay.me";
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/bry-ly/bryanpalay.me";
 
 export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai";

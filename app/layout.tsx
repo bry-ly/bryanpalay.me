@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider/theme-provider";
+import { ThemeProvider } from "@/components/ui/providers/theme-provider";
 import { META_THEME_COLORS } from "@/lib/config/site";
 
 const geistSans = Geist({
@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const notoSansTagalog = localFont({
-  src: "../components/fonts/NotoSansTagalog-Regular.ttf",
+  src: "../public/fonts/NotoSansTagalog-Regular.ttf",
   variable: "--font-tagalog",
   display: "swap",
 });

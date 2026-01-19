@@ -3,11 +3,11 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/primitives/badge";
 import { ExternalLinkIcon, BoxIcon, SearchIcon, XIcon } from "lucide-react";
 
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/types/projects";
 

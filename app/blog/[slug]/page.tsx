@@ -5,10 +5,10 @@ import { CalendarIcon, ClockIcon, ArrowLeftIcon } from "lucide-react";
 import { format } from "date-fns";
 
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
-import { Badge } from "@/components/ui/badge";
-import { Markdown } from "@/components/ui/markdown";
+import { Badge } from "@/components/ui/primitives/badge";
+import { Markdown } from "@/components/ui/display/markdown";
 import { cn } from "@/lib/utils";
-import { PageTransition } from "@/components/ui/page-transition";
+import { PageTransition } from "@/components/ui/animations/page-transition";
 import { SiteHeader } from "@/components/layout/header";
 import { SiteFooter } from "@/components/layout/footer";
 

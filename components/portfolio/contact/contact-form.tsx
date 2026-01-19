@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { SendIcon, CheckCircleIcon, AlertCircleIcon, Loader2Icon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import { cn } from "@/lib/utils";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
