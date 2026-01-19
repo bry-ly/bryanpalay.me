@@ -44,10 +44,12 @@ export function FlipSentences({
 
   const items = useMemo(() => Children.toArray(children), [children]);
   const itemsLengthRef = useRef(items.length);
-  itemsLengthRef.current = items.length;
-
   const onIndexChangeRef = useRef(onIndexChange);
-  onIndexChangeRef.current = onIndexChange;
+
+  useEffect(() => {
+    itemsLengthRef.current = items.length;
+    onIndexChangeRef.current = onIndexChange;
+  }, [items.length, onIndexChange]);
 
   useEffect(() => {
     if (isPaused) return;
