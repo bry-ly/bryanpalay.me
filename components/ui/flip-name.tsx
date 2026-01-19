@@ -21,7 +21,10 @@ export function FlipName({
   const [showBaybayin, setShowBaybayin] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef(interval);
-  intervalRef.current = interval;
+
+  useEffect(() => {
+    intervalRef.current = interval;
+  }, [interval]);
 
   useEffect(() => {
     if (!nameBaybayin || isPaused) return;
