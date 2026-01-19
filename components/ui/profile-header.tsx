@@ -1,7 +1,6 @@
 import { USER } from "@/lib/data/user";
 
 import { PhilippinesFlagIcon } from "./philippines-flag-icon";
-import { ThemeToggle } from "./theme-toggle";
 import { VerifiedIcon } from "./verified-icon";
 import { FlipSentences } from "./flip-sentences";
 import { FlipName } from "./flip-name";
@@ -47,7 +46,7 @@ export function ProfileHeader() {
               <FlipName
                 name={USER.displayName}
                 nameBaybayin={USER.displayNameBaybayin}
-                interval={3}
+                interval={4}
               />
             </h1>
 
