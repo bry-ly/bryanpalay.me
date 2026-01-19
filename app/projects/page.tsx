@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeftIcon } from "lucide-react";
 
 import { PROJECTS } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 import { PageTransition, FadeIn } from "@/components/ui/page-transition";
 import { ProjectsFilter } from "@/components/portfolio/projects/projects-filter";
+import { SiteHeader } from "@/components/layout/header";
+import { SiteFooter } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Projects | Bryan Palay",
@@ -24,30 +24,27 @@ export default function ProjectsPage() {
   const allSkills = getAllSkills();
 
   return (
-    <PageTransition>
-      <div className="mx-auto md:max-w-4xl">
-        <Separator />
-        <div className="border-x border-edge px-4 py-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
-          >
-            <ArrowLeftIcon className="size-4" />
-            Back to Home
-          </Link>
-          <FadeIn>
-            <h1 className="text-4xl font-bold mb-2">Projects</h1>
-            <p className="text-muted-foreground">
-              A collection of {PROJECTS.length} projects I&apos;ve built.
-            </p>
-          </FadeIn>
-        </div>
-        <Separator />
+    <>
+      <SiteHeader />
+      <PageTransition>
+        <div className="mx-auto md:max-w-3xl">
+          <Separator />
+          <div className="border-x border-edge px-4 py-8">
+            <FadeIn>
+              <h1 className="text-4xl font-bold mb-2">Projects</h1>
+              <p className="text-muted-foreground">
+                A collection of {PROJECTS.length} projects I&apos;ve built.
+              </p>
+            </FadeIn>
+          </div>
+          <Separator />
 
-        <ProjectsFilter projects={PROJECTS} allSkills={allSkills} />
-        <Separator />
-      </div>
-    </PageTransition>
+          <ProjectsFilter projects={PROJECTS} allSkills={allSkills} />
+          <Separator />
+        </div>
+      </PageTransition>
+      <SiteFooter />
+    </>
   );
 }
 
