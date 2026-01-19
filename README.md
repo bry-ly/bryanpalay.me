@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
+
+A [Next.js](https://nextjs.org) portfolio site built with TypeScript, Tailwind CSS, and Radix UI.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Copy environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+4. Fill in required environment variables (see [Environment Setup](#environment-setup))
+5. Start development server:
+   ```bash
+   npm run dev
+   ```
+6. Open [http://localhost:3000](http://localhost:3000)
+
+## Available Scripts
+
+| Script | Command | Description |
+|--------|---------|-------------|
+| `dev` | `next dev` | Start development server with hot reload |
+| `build` | `next build` | Create production build |
+| `start` | `next start` | Start production server |
+| `lint` | `eslint` | Run ESLint for code quality checks |
+
+## Environment Setup
+
+Copy `.env.example` to `.env` and configure:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `APP_URL` | Yes | Base URL of the website |
+| `NEXT_PUBLIC_DMCA_URL` | No | DMCA protection badge URL |
+| `GITHUB_API_TOKEN` | Yes | GitHub API token for fetching data |
+| `RESEND_API_KEY` | Yes | Resend API key for email delivery |
+| `CONTACT_EMAIL` | Yes | Email address for contact form submissions |
+
+### Obtaining API Keys
+
+- **GitHub Token**: [Create token](https://github.com/settings/tokens) with `read:user` scope
+- **Resend API Key**: [Get key](https://resend.com/api-keys) after creating account
+
+## Tech Stack
+
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI
+- **Animation**: Motion, React Three Fiber
+- **Email**: Resend
+- **Content**: MDX
+
+---
+
+## Operations Runbook
+
+### Deployment
+
+#### Vercel (Recommended)
+
+1. Connect repository to [Vercel](https://vercel.com)
+2. Configure environment variables in Vercel dashboard
+3. Deploy triggers automatically on push to main branch
+
+#### Manual Deployment
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Common Issues and Fixes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Build type errors | TypeScript strict mode | Fix type issues shown in build output |
+| Missing env vars | Environment not configured | Add required vars to `.env` or Vercel |
+| 500 on contact form | Invalid `RESEND_API_KEY` | Verify API key is valid |
+| GitHub data missing | Invalid `GITHUB_API_TOKEN` | Regenerate token with correct scopes |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Rollback (Vercel)
+
+1. Go to Vercel Dashboard > Deployments
+2. Find the last working deployment
+3. Click "..." menu > "Promote to Production"
+
+### Rollback (Git)
+
+```bash
+git log --oneline
+git revert <commit-hash>
+git push origin main
+```
+
+---
+
+## Contributing
+
+1. Follow existing code patterns
+2. Run linting before submitting:
+   ```bash
+   npm run lint
+   ```
+3. Verify build succeeds:
+   ```bash
+   npm run build
+   ```
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
+- [Next.js GitHub](https://github.com/vercel/next.js)
+- [Next.js Deployment](https://nextjs.org/docs/app/building-your-application/deploying)

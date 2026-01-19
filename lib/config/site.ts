@@ -19,6 +19,18 @@ export const MAIN_NAV: NavItem[] = [
     title: "Portfolio",
     href: "/",
   },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
+    title: "Projects",
+    href: "/projects",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
 ];
 
 export const GITHUB_USERNAME = "bry-ly";

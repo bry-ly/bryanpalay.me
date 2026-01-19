@@ -142,6 +142,7 @@ export function ContactForm() {
 
       {status === "error" && (
         <motion.div
+          role="alert"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center gap-2 p-4 rounded-lg bg-destructive/10 text-destructive"

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarIcon, ClockIcon, ArrowLeftIcon } from "lucide-react";
+import { CalendarIcon, ClockIcon } from "lucide-react";
 import { format } from "date-fns";
 
 import { getAllPosts, getAllTags } from "@/lib/blog";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { PageTransition } from "@/components/ui/page-transition";
+import { SiteHeader } from "@/components/layout/header";
+import { SiteFooter } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Blog | Bryan Palay",
@@ -18,23 +20,18 @@ export default function BlogPage() {
   const tags = getAllTags();
 
   return (
-    <PageTransition>
-      <div className="mx-auto md:max-w-3xl">
-        <Separator />
-        <div className="border-x border-edge px-4 py-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
-          >
-            <ArrowLeftIcon className="size-4" />
-            Back to Home
-          </Link>
-          <h1 className="text-4xl font-bold mb-2">Blog</h1>
-          <p className="text-muted-foreground">
-            Thoughts on web development, programming, and technology.
-          </p>
-        </div>
-        <Separator />
+    <>
+      <SiteHeader />
+      <PageTransition>
+        <div className="mx-auto md:max-w-3xl">
+          <Separator />
+          <div className="border-x border-edge px-4 py-8">
+            <h1 className="text-4xl font-bold mb-2">Blog</h1>
+            <p className="text-muted-foreground">
+              Thoughts on web development, programming, and technology.
+            </p>
+          </div>
+          <Separator />
 
         {tags.length > 0 && (
           <>
@@ -96,8 +93,10 @@ export default function BlogPage() {
           )}
         </div>
         <Separator />
-      </div>
-    </PageTransition>
+        </div>
+      </PageTransition>
+      <SiteFooter />
+    </>
   );
 }
 

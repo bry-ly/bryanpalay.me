@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Markdown } from "@/components/ui/markdown";
 import { cn } from "@/lib/utils";
 import { PageTransition } from "@/components/ui/page-transition";
+import { SiteHeader } from "@/components/layout/header";
+import { SiteFooter } from "@/components/layout/footer";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -42,52 +44,56 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <PageTransition>
-      <div className="mx-auto md:max-w-3xl">
-        <Separator />
-        <article className="border-x border-edge">
-          <header className="px-4 py-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
-            >
-              <ArrowLeftIcon className="size-4" />
-              Back to Blog
-            </Link>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
-            <p className="text-lg text-muted-foreground mb-6">
-              {post.description}
-            </p>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1">
-                <CalendarIcon className="size-4" />
-                {format(new Date(post.date), "MMMM d, yyyy")}
-              </span>
-              <span className="flex items-center gap-1">
-                <ClockIcon className="size-4" />
-                {post.readingTime}
-              </span>
-            </div>
-            {post.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
-          </header>
+    <>
+      <SiteHeader />
+      <PageTransition>
+        <div className="mx-auto md:max-w-3xl">
           <Separator />
-          <div className="px-4 py-8">
-            <div className="prose prose-zinc dark:prose-invert max-w-none">
-              <Markdown>{post.content}</Markdown>
+          <article className="border-x border-edge">
+            <header className="px-4 py-8">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+              >
+                <ArrowLeftIcon className="size-4" />
+                Back to Blog
+              </Link>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+              <p className="text-lg text-muted-foreground mb-6">
+                {post.description}
+              </p>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1">
+                  <CalendarIcon className="size-4" />
+                  {format(new Date(post.date), "MMMM d, yyyy")}
+                </span>
+                <span className="flex items-center gap-1">
+                  <ClockIcon className="size-4" />
+                  {post.readingTime}
+                </span>
+              </div>
+              {post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              )}
+            </header>
+            <Separator />
+            <div className="px-4 py-8">
+              <div className="prose prose-zinc dark:prose-invert max-w-none">
+                <Markdown>{post.content}</Markdown>
+              </div>
             </div>
-          </div>
-        </article>
-        <Separator />
-      </div>
-    </PageTransition>
+          </article>
+          <Separator />
+        </div>
+      </PageTransition>
+      <SiteFooter />
+    </>
   );
 }
 
