@@ -77,12 +77,15 @@ export function CurrentLocalTimeItem({ timeZone }: CurrentLocalTimeItemProps) {
       const hoursDiff = minutesDiff / 60;
 
       let diff = "";
-      if (hoursDiff < 1) {
+      const absHoursDiff = Math.abs(hoursDiff);
+      if (absHoursDiff < 0.5) {
         diff = " // same time";
       } else {
-        const hours = Math.floor(hoursDiff);
-        const isAhead = targetOffset > viewerOffset;
-        diff = ` // ${hours}h ${isAhead ? "ahead" : "behind"}`;
+        const isAhead = hoursDiff > 0;
+        const hours = Math.floor(absHoursDiff);
+        const minutes = Math.round((absHoursDiff - hours) * 60);
+        const timeStr = minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+        diff = ` // ${timeStr} ${isAhead ? "ahead" : "behind"}`;
       }
       setDiffText(diff);
     };

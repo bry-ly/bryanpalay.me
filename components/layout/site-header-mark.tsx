@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-import { USER } from "@/lib/data/user";
 import { cn } from "@/lib/utils";
 
 export function SiteHeaderMark({ className }: { className?: string }) {
