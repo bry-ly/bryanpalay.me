@@ -49,7 +49,7 @@ export async function NavItemGitHub({ className }: { className?: string }) {
       </svg>
       {stars !== null && (
         <span className="flex items-center gap-0.5 font-mono text-xs">
-          <Star className="size-3" />
+          <Star className="size-3" aria-hidden="true" />
           {formatNumber(stars)}
         </span>
       )}
