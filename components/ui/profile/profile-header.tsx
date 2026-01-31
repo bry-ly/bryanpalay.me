@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useHotkeys } from "react-hotkeys-hook";
-import { motion, type Variants } from "motion/react";
+import { motion, AnimatePresence, type Variants } from "motion/react";
 import { USER } from "@/lib/data/user";
 
 import { PhilippinesFlagIcon } from "./philippines-flag-icon";
 import { VerifiedIcon } from "./verified-icon";
 import { FlipSentences } from "@/components/ui/animations/flip-sentences";
-import { FlipName } from "@/components/ui/animations/flip-name";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/primitives/tooltip";
 import { Kbd } from "@/components/ui/display/kbd";
 
@@ -22,16 +21,17 @@ export function ProfileHeader() {
 
   useHotkeys("q", toggleAvatar);
 
-  const glitchVariants: Variants = {
-    idle: { filter: "hue-rotate(0deg) contrast(100%) saturate(100%)" },
-    glitch: {
-      filter: [
-        "hue-rotate(0deg) contrast(100%) saturate(100%)",
-        "hue-rotate(90deg) contrast(200%) saturate(150%)",
-        "hue-rotate(-90deg) contrast(200%) saturate(150%)",
-        "hue-rotate(0deg) contrast(100%) saturate(100%)",
-      ],
-      transition: { duration: 0.3, ease: "linear" },
+  const fadeBlurVariants: Variants = {
+    initial: { opacity: 0, filter: "blur(8px)" },
+    animate: { 
+      opacity: 1, 
+      filter: "blur(0px)",
+      transition: { duration: 0.4, ease: "easeOut" }
+    },
+    exit: { 
+      opacity: 0, 
+      filter: "blur(8px)",
+      transition: { duration: 0.2, ease: "easeIn" }
     },
   };
 
@@ -42,22 +42,25 @@ export function ProfileHeader() {
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-0.75 relative group">
           <div className="relative size-32 sm:size-40 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none overflow-hidden">
-            <motion.div
-              key={isAltAvatar ? "alt" : "main"}
-              variants={glitchVariants}
-              animate="glitch"
-              initial="idle"
-              className="size-full bg-background"
-            >
-              <Image
-                className="size-full rounded-full object-cover"
-                alt={`${USER.displayName}'s avatar`}
-                src={currentAvatarSrc}
-                width={160}
-                height={160}
-                priority
-              />
-            </motion.div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isAltAvatar ? "alt" : "main"}
+                variants={fadeBlurVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="size-full bg-background"
+              >
+                <Image
+                  className="size-full rounded-full object-cover"
+                  alt={`${USER.displayName}'s avatar`}
+                  src={currentAvatarSrc}
+                  width={160}
+                  height={160}
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
           
           <Tooltip>
@@ -117,11 +120,7 @@ export function ProfileHeader() {
         <div className="border-t border-edge">
           <div className="flex items-center gap-2 pl-4">
             <h1 className="-translate-y-px text-3xl font-semibold">
-              <FlipName
-                name={USER.displayName}
-                nameBaybayin={USER.displayNameBaybayin}
-                interval={4}
-              />
+              {isAltAvatar ? USER.username : USER.displayName}
             </h1>
 
             <VerifiedIcon
