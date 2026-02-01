@@ -301,6 +301,7 @@
   ::backdrop,
   ::file-selector-button {
     @apply border-border outline-ring/50;
+    font-size: 12;
   }
 
   /* Respect prefers-reduced-motion for all animations */
